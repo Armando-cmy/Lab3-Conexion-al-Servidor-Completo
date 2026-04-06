@@ -1,0 +1,13 @@
+{
+    "post":[
+        {
+    "task": "Nombre de la tarea",
+    "responsible": "Persona",
+    "description": "Descripción",
+    "category": "Categoría",
+    "status": "Pendiente",
+    "date": "2026-04-06",
+    "priority": "Alta"
+}
+    ]
+}
