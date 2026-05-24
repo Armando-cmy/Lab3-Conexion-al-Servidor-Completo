@@ -1,3 +1,4 @@
+/*
 //-----CON SUPABASE----//
 const URL_SUPABASE='https://bfmmzrgtphzkfjaoqtta.supabase.co';
 const SUPABASE_KEY='sb_publishable_H7W4rKGnMKQBWwUd6uB2pg_ChCCBhot';
@@ -127,3 +128,87 @@ export const clienteService ={
     eliminarProducto,
     producto
 }
+    const  BASE_URL="htpp://localhost:3000";
+    const clienteService={
+        //get
+        listaclientes: async()=>{
+            const res=await fetch(`${BASE_URL}/clientes`);
+            return res.json();
+        },
+        //get por id
+        cliente:async(id)=>{
+            const res=await fetch(`${BASE_URL}/clientes/${id}`);
+            
+        },
+        //post
+        crearClientes:async(id,nombre,email)=>{
+            const res=await fetch(`${BASE_URL}/clientes`,{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify({id,nombre,email})
+            });
+            return res.json();
+        },
+        //put
+        actualizarClientes:async(id,nombre,email)=>{
+            const res=await fetch(`${BASE_URL}/clientes/${id}`,{
+                method:"PUT",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify({nombre,email})
+            });
+            return res.json();
+        },
+    }
+    //delete
+    eliminarClientes:async(id)=>{
+        const res=await fetch(`${BASE_URL}/clientes/${id}`,{
+            method:"DELETE"
+        });
+        return res.json();
+    }
+    export{clienteService};
+]*/
+//CONEXION CON EXPRESS
+const BASE_URL = "http://localhost:3000";
+const clientService = {
+    //GET
+    listar_clientes: async () =>{
+        const res = await fetch(`${BASE_URL}/clientes`)
+        return res.json();
+    },
+    //GET POR ID
+    cliente: async(id) =>{
+        const res = await fetch(`${BASE_URL}/clientes/${id}`);
+        return res.json();
+    },
+    //POST
+    crearCliente: async(id,nombre,email) =>{
+        const res = await fetch(`${BASE_URL}/clientes`,{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({id,nombre,email})
+        });
+        return res.json();
+    },
+        //PUT
+        actualizarCliente: async (id,nombre,email) =>{
+            const res = await fetch(`${BASE_URL}/clientes/${id}`,{
+                method:"PUT",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify({nombre,email})
+            });
+            return res.json();
+        
+    },
+    eliminarCliente:async(id) =>{
+        const res = await fetch(`${BASE_URL}/clientes/${id}`,{
+            method:"DELETE"
+        });
+        return res.json();
+    }
+};
+export{clientService};

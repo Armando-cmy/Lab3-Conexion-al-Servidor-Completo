@@ -1,4 +1,4 @@
-import { clientService } from "../service/client-service.js";
+import { clientService } from "../Service/client_service.js";
 const formulario=document.querySelector('[data-form]');
 const obInfo=async()=>{
     const url= new URL(window.location);
